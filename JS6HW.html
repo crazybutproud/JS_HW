@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 6 HW Дюндикова</title>
+    <style>
+        .lights {
+            border: 2px solid black;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            padding: 5px;
+            margin: 5px;
+            background-color: rgb(183, 183, 183);
+        }
+
+        .main-box {
+            border: 2px solid black;
+            border-radius: 20px;
+            margin: 10px;
+            padding: 10px;
+            width: max-content;
+            background-color: rgba(0, 0, 0, 0.538);
+        }
+
+        .box {
+            border: 5px dotted grey;
+            padding: 20px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .box li {
+            text-align: left;
+        }
+
+        .active {
+            background: #b988b0cc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JS 6 HW Дюндикова</h1>
+
+    <div class="box">
+        <div class="main-box">
+            <div class="lights" id="first"></div>
+            <div class="lights" id="second"></div>
+            <div class="lights" id="third"></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <ol class="list" id="list">
+            <li>
+                "JavaScript fo Kids: A Playful Introduction to Programming" by Nick
+                Morgan
+            </li>
+            <li>
+                "Eloquent JavaScript: A Modern Introduction to Programming" by Marijn
+                Haverbeke
+            </li>
+            <li>"JavaScript: The Good Parts" by Douglas Crockford</li>
+            <li>
+                "Programming JavaScript Applications: Robust Web Architecture with
+                Node, HTML, and Modern JS Libraries" by Eric Elliott
+            </li>
+            <li>
+                Effective JavaScript: 68 Specific Ways to Harness the Power of
+                JavaScript" by David Herman
+            </li>
+            <li>"JavaScript: The Definitive Guide" by David Flanagan</li>
+            <li>"You Don't Know JS" by Kyle Simpson</li>
+        </ol>
+
+    </div>
+
+    <script>
+        // решение первой задачи
+        let lights = document.getElementsByClassName('lights');
+        let btn = document.getElementById('button-next');
+
+        lights[0].addEventListener('click', () => { foo('red'); }, false);
+        lights[1].addEventListener('click', () => { foo('yellow'); }, false);
+        lights[2].addEventListener('click', () => { foo('green'); }, false);
+
+        function foo(color) {
+            for (i = 0; i < lights.length; i++) { lights[i].style.background = '#B8B8B8'; }
+            color == 'red' ? lights[0].style.background = 'red' : '';
+            color == 'yellow' ? lights[1].style.background = 'yellow' : '';
+            color == 'green' ? lights[2].style.background = 'green' : '';
+        }
+
+        // решение второй задачи
+
+        list.addEventListener("click", function (e) {
+            let target = e.target;
+            higlight(target);
+        });
+
+        let selectLi;
+
+        function higlight(li) {
+            if (selectLi) {
+                selectLi.classList.remove("active");
+            }
+            selectLi = li;
+            selectLi.classList.add("active");
+        }
+
+    </script>
+</body>
+
+</html>
